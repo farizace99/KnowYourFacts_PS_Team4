@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Fragment> al;
@@ -24,6 +25,29 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_previous:
+                if (vPager.getCurrentItem() > 0) {
+                    int previousPage = vPager.getCurrentItem() - 1;
+                    vPager.setCurrentItem(previousPage, true);
+                }
+
+            case R.id.action_random:
+                vPager.setCurrentItem(new Random().nextInt(al.size()));
+
+            case R.id.action_next:
+                int max = vPager.getChildCount();
+                if (vPager.getCurrentItem() < max - 1) {
+                    int nextPage = vPager.getCurrentItem() + 1;
+                    vPager.setCurrentItem(nextPage, true);
+                }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -44,36 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
         vPager.setAdapter(adapter);
 
-        @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            int id = item.getItemId();
-            switch (id) {
-                case R.id.action_previous:
-                    if (vPager.getCurrentItem() > 0) {
-                        int previousPage = vPager.getCurrentItem() - 1;
-                        vPager.setCurrentItem(previousPage, true);
-                    }
-                    break;
-                case R.id.action_random:
-                    // What to do here?
-                    break;
-                case R.id.action_next:
-                    int max = vPager.getChildCount();
-                    if (vPager.getCurrentItem() < max - 1) {
-                        int nextPage = vPager.getCurrentItem() + 1;
-                        vPager.setCurrentItem(nextPage, true);
-                        break;
-                    }
-                    return super.onOptionsItemSelected(item);
+        btnRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
 
-
-            btnRead.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-
-            });
-        }
+        });
     }
+}
