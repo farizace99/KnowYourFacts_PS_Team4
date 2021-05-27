@@ -1,5 +1,6 @@
 package com.myapplicationdev.android.knowyourfacts_ps_team4;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -9,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 
@@ -23,6 +27,7 @@ public class Fragment_Frag3 extends Fragment {
     TextView tv3;
     Button btnColor3;
     LinearLayout ll;
+    ImageView iv;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,6 +79,7 @@ public class Fragment_Frag3 extends Fragment {
         btnColor3 = view.findViewById(R.id.btnColor3);
         ll = view.findViewById(R.id.ll3);
         ll.setBackgroundColor(Color.CYAN);
+        iv = view.findViewById(R.id.iv);
 
         tv3.setText("Honey is the only food that does not spoil. Honey found in the tombs of Egyptian pharaohs has been tasted by archaeologists and found edible.");
 
@@ -83,6 +89,9 @@ public class Fragment_Frag3 extends Fragment {
                 setBackgroundColor();
             }
         });
+
+        String imageUrl = "https://wtffunfact.com/wp-content/uploads/2021/05/WTF-Fun-Fact-From-NFL-To-Serial-Killer.png";
+        Picasso.with(getActivity()).load(imageUrl).into(iv);
         return view;
     }
     public void setBackgroundColor(){
