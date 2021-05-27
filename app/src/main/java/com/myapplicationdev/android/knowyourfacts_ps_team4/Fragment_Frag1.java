@@ -73,10 +73,11 @@ public class Fragment_Frag1 extends Fragment {
 
         tv = view.findViewById(R.id.tv1);
         btn = view.findViewById(R.id.btnColor1);
+        ll = view.findViewById(R.id.ll);
 
         tv.setText("The word \"queue\" is the only word in the English language that is still pronounced the same way when the last four letters are removed.");
 
-        setBackgroundColor();
+       // setBackgroundColor();
         return view;
     }
 
