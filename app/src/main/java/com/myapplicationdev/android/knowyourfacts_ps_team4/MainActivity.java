@@ -22,6 +22,34 @@ public class MainActivity extends AppCompatActivity {
     MenuItem item;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btnRead = findViewById(R.id.btnRead);
+        vPager = findViewById(R.id.vp);
+
+        FragmentManager fm = getSupportFragmentManager();
+
+        al = new ArrayList<Fragment>();
+        al.add(new Fragment_Frag1());
+        al.add(new Fragment_Frag2());
+        al.add(new Fragment_Frag3());
+
+        adapter = new MyFragmentPagerAdapter(fm, al);
+
+        vPager.setAdapter(adapter);
+
+        btnRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+
+            }
+
+        });
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options, menu);
         return super.onCreateOptionsMenu(menu);
@@ -50,31 +78,5 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btnRead = findViewById(R.id.btnRead);
-        vPager = findViewById(R.id.vp);
 
-        FragmentManager fm = getSupportFragmentManager();
-
-        al = new ArrayList<Fragment>();
-        al.add(new Fragment_Frag1());
-        al.add(new Fragment_Frag2());
-        al.add(new Fragment_Frag3());
-
-        adapter = new MyFragmentPagerAdapter(fm, al);
-
-        vPager.setAdapter(adapter);
-
-        btnRead.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-
-            }
-
-        });
-    }
 }
