@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 
@@ -24,6 +27,7 @@ public class Fragment_Frag2 extends Fragment {
     TextView tv2;
     Button btnColor2;
     LinearLayout ll;
+    ImageView iv;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,6 +80,7 @@ public class Fragment_Frag2 extends Fragment {
         btnColor2 = view.findViewById(R.id.btnColor2);
         ll = view.findViewById(R.id.ll2);
         ll.setBackgroundColor(Color.GREEN);
+        iv = view.findViewById(R.id.iv);
 
         tv2.setText("The average lead pencil will draw a line 35 miles long or write approximately 50,000 English words.");
 
@@ -85,6 +90,10 @@ public class Fragment_Frag2 extends Fragment {
                 setBackgroundColor();
             }
         });
+
+        String imageUrl = "https://wtffunfact.com/wp-content/uploads/2021/05/WTF-Fun-Fact-Taos-Pueblo-1.png";
+        Picasso.with(getActivity()).load(imageUrl).into(iv);
+
         return view;
     }
     public void setBackgroundColor(){
