@@ -77,7 +77,13 @@ public class Fragment_Frag1 extends Fragment {
 
         tv.setText("The word \"queue\" is the only word in the English language that is still pronounced the same way when the last four letters are removed.");
 
-       // setBackgroundColor();
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 setBackgroundColor();
+            }
+        });
+
         return view;
     }
 
