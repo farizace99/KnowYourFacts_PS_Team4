@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 
@@ -24,6 +27,7 @@ public class Fragment_Frag1 extends Fragment {
     TextView tv;
     Button btn;
     LinearLayout ll;
+    ImageView iv;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,6 +79,8 @@ public class Fragment_Frag1 extends Fragment {
         btn = view.findViewById(R.id.btnColor1);
         ll = view.findViewById(R.id.ll);
         ll.setBackgroundColor(Color.BLUE);
+        iv = view.findViewById(R.id.iv);
+
         tv.setText("The word \"queue\" is the only word in the English language that is still pronounced the same way when the last four letters are removed.");
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +89,9 @@ public class Fragment_Frag1 extends Fragment {
                  setBackgroundColor();
             }
         });
+
+        String imageUrl = "https://wtffunfact.com/wp-content/uploads/2021/05/WTF-Fun-Fact-PCP-In-The-Chowder.png";
+        Picasso.with(getActivity()).load(imageUrl).into(iv);
 
         return view;
     }
