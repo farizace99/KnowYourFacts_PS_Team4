@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -58,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
         switch (id) {
             case R.id.action_previous:
+
                 if (vPager.getCurrentItem() > 0) {
                     int previousPage = vPager.getCurrentItem() - 1;
                     vPager.setCurrentItem(previousPage, true);
