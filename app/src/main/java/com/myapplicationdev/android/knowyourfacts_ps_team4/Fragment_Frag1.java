@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -22,6 +23,7 @@ public class Fragment_Frag1 extends Fragment {
 
     TextView tv;
     Button btn;
+    LinearLayout ll;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,16 +76,14 @@ public class Fragment_Frag1 extends Fragment {
 
         tv.setText("The word \"queue\" is the only word in the English language that is still pronounced the same way when the last four letters are removed.");
 
-        Random rnd = new Random();
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-        view.setBackgroundColor(color);
-
-
-
+        setBackgroundColor();
         return view;
     }
 
     public void setBackgroundColor(){
 
+        Random rnd = new Random();
+        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        ll.setBackgroundColor(color);
     }
 }
