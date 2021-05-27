@@ -12,9 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import com.crazyhitty.chdev.ks.rssmanager.RSS;
+import com.crazyhitty.chdev.ks.rssmanager.RssReader;
+
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -102,4 +107,33 @@ public class Fragment_Frag1 extends Fragment {
         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         ll.setBackgroundColor(color);
     }
+
+    private RssReader rssReader = new RssReader((RssReader.RssCallback) this);
+
+    //load feeds
+    private void loadFeeds(String[] urls) {
+        rssReader.loadFeeds(urls);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        rssReader.destroy();
+    }
+
+    @Override
+    public void rssFeedsLoaded(List<RSS> rssList) {
+        RSS item = rssList.get(0);
+        String title = item.getChannel().getItems().get(0).getTitle();
+        String content = item.getChannel().getItems().get(0).getDescription();
+        tv.setText(title);
+        //wv1.loadData(content,"","");
+    }
+
+    @Override
+    public void unableToReadRssFeeds(String errorMessage) {
+        Toast.makeText(getActivity(),"RSS oad failed",Toast.LENGTH_SHORT).show();
+    }
+
+
 }
