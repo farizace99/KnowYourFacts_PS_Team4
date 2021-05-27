@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnRead = findViewById(R.id.btnRead);
         vPager = findViewById(R.id.vp);
+
 
         FragmentManager fm = getSupportFragmentManager();
 
@@ -82,6 +87,27 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onResume() {
+        super.onResume();
+        SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(this);
+        int page = spref.getInt("page", vPager.getCurrentItem());
+        vPager.setCurrentItem(page);
+
+    }
+
+
+    public void onPause() {
+        super.onPause();
+        //getDefaultSharedPreferences() uses a default preference-file name.
+        // This default is set per application, so all activities in the same app context can access it easily as in the following example:
+        SharedPreferences spref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = spref.edit();
+        editor.clear();
+        editor.putInt("page", vPager.getCurrentItem());
+        editor.apply();
+    }
+
 
 
 }
