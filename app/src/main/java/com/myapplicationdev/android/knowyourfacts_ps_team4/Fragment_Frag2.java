@@ -1,6 +1,5 @@
 package com.myapplicationdev.android.knowyourfacts_ps_team4;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,11 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,10 +14,6 @@ import java.util.Random;
  * create an instance of this fragment.
  */
 public class Fragment_Frag2 extends Fragment {
-
-    TextView tv2;
-    Button btnColor2;
-    LinearLayout ll;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,28 +59,6 @@ public class Fragment_Frag2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment__frag2, container, false);
-
-        tv2 = view.findViewById(R.id.tv2);
-        btnColor2 = view.findViewById(R.id.btnColor2);
-        ll = view.findViewById(R.id.ll2);
-        ll.setBackgroundColor(Color.GREEN);
-
-        tv2.setText("The average lead pencil will draw a line 35 miles long or write approximately 50,000 English words.");
-
-        btnColor2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setBackgroundColor();
-            }
-        });
-        return view;
-    }
-    public void setBackgroundColor(){
-
-        Random rnd = new Random();
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-        ll.setBackgroundColor(color);
+        return inflater.inflate(R.layout.fragment__frag2, container, false);
     }
 }
