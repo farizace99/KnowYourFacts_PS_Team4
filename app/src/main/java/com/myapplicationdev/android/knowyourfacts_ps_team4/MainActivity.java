@@ -64,16 +64,18 @@ public class MainActivity extends AppCompatActivity {
                     int previousPage = vPager.getCurrentItem() - 1;
                     vPager.setCurrentItem(previousPage, true);
                 }
+                return true;
 
             case R.id.action_random:
                 vPager.setCurrentItem(new Random().nextInt(al.size()));
-
+                return true;
             case R.id.action_next:
                 int max = vPager.getChildCount();
                 if (vPager.getCurrentItem() < max - 1) {
                     int nextPage = vPager.getCurrentItem() + 1;
                     vPager.setCurrentItem(nextPage, true);
                 }
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
