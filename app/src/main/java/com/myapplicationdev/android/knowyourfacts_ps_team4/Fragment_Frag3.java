@@ -73,6 +73,7 @@ public class Fragment_Frag3 extends Fragment {
         tv3 = view.findViewById(R.id.tv3);
         btnColor3 = view.findViewById(R.id.btnColor3);
         ll = view.findViewById(R.id.ll3);
+        ll.setBackgroundColor(Color.CYAN);
 
         tv3.setText("Honey is the only food that does not spoil. Honey found in the tombs of Egyptian pharaohs has been tasted by archaeologists and found edible.");
 
