@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android">
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/action_previous"
+            android:title="Previous"/>
+        <item android:id="@+id/action_random"
+            android:title="Random" />
+        <item android:id="@+id/action_next"
+            android:title="Next" />
+    </menu>
 </androidx.constraintlayout.widget.ConstraintLayout>
