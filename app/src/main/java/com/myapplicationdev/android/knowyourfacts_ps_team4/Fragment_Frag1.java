@@ -1,5 +1,6 @@
 package com.myapplicationdev.android.knowyourfacts_ps_team4;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Fragment_Frag1 extends Fragment {
+
+    TextView tv;
+    Button btn;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +67,23 @@ public class Fragment_Frag1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__frag1, container, false);
+        View view = inflater.inflate(R.layout.fragment__frag1, container, false);
+
+        tv = view.findViewById(R.id.tv1);
+        btn = view.findViewById(R.id.btnColor1);
+
+        tv.setText("The word \"queue\" is the only word in the English language that is still pronounced the same way when the last four letters are removed.");
+
+        Random rnd = new Random();
+        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        view.setBackgroundColor(color);
+
+
+
+        return view;
+    }
+
+    public void setBackgroundColor(){
+
     }
 }
